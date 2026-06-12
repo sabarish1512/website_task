@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .3s linear; 
+}
+body {
+     background-color: #fdc5f5; 
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+}
+
+/* header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* header logo */
+header .logo {
+    font-size: 3rem;
+    color: #333;
+    font-weight: 900;
+}
+
+header .logo span {
+    color: #fdc5f5;
+}
+
+/* header navbar anchor tag */
+header .navbar a {
+    font-size: 2rem;
+    padding: 0 1.5rem;
+    color: #666;
+}
+
+header .navbar a:hover {
+    color: #fdc5f5;
+    font-weight: 500;
+}
+
+/* header navbar icons anchor tag */
+header .icons a {
+    font-size: 3rem;
+    color: #333;
+    margin-left: 1.5rem;
+}
+
+header .icons a:hover {
+    color: #fb6f92;
+    font-weight: 600;
+}
+
+/* header input */
+header #toggler {
+    display: none;
+}
+
+/* header input icons */
+header .fa-bars {
+    font-size: 3rem;
+    color: #333;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    border: 0.1rem solid rgba(0, 0, 0, 0.3);
+    display: none; /* Hidden on desktop screens */
+}
+
+/* Media queries for responsive design */
+
+@media (max-width: 768px) {
+    header .fa-bars {
+        display: block;
+        position: relative;
+        z-index: 1001;     
+        pointer-events: auto; 
+    }
+
+    /* 2. Configure the mobile navigation container dropdown */
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #eee;
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+        z-index: 1000;     /* Kept just below the button trigger */
+        
+        /* Clear clipping definition initialization */
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    /* 3. Dropdown expansion rule mapped to the checkbox toggle state */
+    header #toggler:checked ~ .navbar {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    /* 4. Anchor style layout spacing adjustments */
+    header .navbar a {
+        margin: 1.5rem;
+        padding: 1.5rem;
+        background-color: #fff;
+        border: 0.1rem solid rgba(0, 0, 0, 0.1);
+        display: block;
+    }
+}
